@@ -15,6 +15,9 @@ export default function MovieCard({ movie }) {
         setSelectedMovie(movie);
         setShowModal(true);
     }
+    const handleAddToCart=(event , movie)=>{
+        event.stopPropagation();
+    }
     return (
         <>
             {showModal&&<MovieDetails 
@@ -27,7 +30,9 @@ export default function MovieCard({ movie }) {
                     <h3 className="text-xl mb-1">{movie.title}</h3>
                     <p className="text-[#575A6E] text-sm mb-2">{movie.genre}</p>
                     <MovieRating rating={movie.rating} />
-                    <a className="bg-primary rounded-lg py-2 px-5 flex items-center justify-center gap-2 text-[#171923] font-semibold text-sm"
+                    <a 
+                    onClick={(e)=>handleAddToCart(e,movie)}
+                    className="bg-primary rounded-lg py-2 px-5 flex items-center justify-center gap-2 text-[#171923] font-semibold text-sm"
                         href="#">
                         <img src={tag} alt="" />
                         <span>${movie.price} | Add to Cart</span>
