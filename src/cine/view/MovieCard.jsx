@@ -17,6 +17,12 @@ export default function MovieCard({ movie }) {
     }
     const handleAddToCart=(event , movie)=>{
         event.stopPropagation();
+        const found =cartData.find((item)=>{
+            return item===movie.id;
+        })
+        if(!found){
+            setCartData([..cartData,movie]);
+        }
     }
     return (
         <>
