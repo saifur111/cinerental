@@ -37,7 +37,7 @@ export default function CartDetails({ onClose }) {
                         {
                             state.cartData.length === 0 ?
                                 (
-                                    <p className="text-3xl">The Cart is Empty!!!</p>
+                                    <p className="text-3xl">The Cart is Empty!</p>
                                 ) :
                                 (<>
                                     {state.cartData.map((item) => (
